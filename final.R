@@ -1,7 +1,5 @@
 
 
-
-
 library(ggplot2)
 library(dplyr)
 library(hrbrthemes)
@@ -29,19 +27,9 @@ cup <- filter(cup, TEAM %in% c("Argentina","Morocco", "Croatia", "France") )
 
 #cup <- head(cup,10)
 
-
-
-
-
-
 names(cup)[12] = "Win"
-
-
 new <- c(35, 37, 16, 13) 
-    
-
 cup2 <- cbind(cup, new)
-
 
 ggplot(data=cup2, aes(x= reorder(TEAM, -Win) , y=Win, group=1)) +
   ggtitle("Ganar el Mundial de Fútbol 2022 (Top 4)") +
@@ -85,29 +73,5 @@ ggplot(data=cup2, aes(x= reorder(TEAM, -Win) , y=Win, group=1)) +
            label = "Predicción antes de comenzar el mundial              ") +
   theme(
         axis.text.x=element_text(margin = margin(t = 25)))
-
-
-
-
-scale_alpha_manual(name = NULL,
-                   values = c(1, 1),
-                   breaks = c("Observed", "Fitted") )
-
-
-
-scale_color_identity(name = "", labels = c("Actual (Jue 1 dic 21:07)", "Antes de comenzar el mundial"),
-                     guide = guide_legend())
-
-
-
-
-
-
-
-
-
-
-
-
 
 
